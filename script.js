@@ -59,7 +59,7 @@ function changeImg() {
         idx += imageCnt;
     }
 
-    carouselImg.src = `../assets/images/${imagePath[idx]}`;
+    carouselImg.src = `./assets/images/${imagePath[idx]}`;
 };
 
 function resetInterval() {
