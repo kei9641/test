@@ -20,14 +20,12 @@ let interval = setInterval(autoSlide, 3000);
 // 좌우 이동
 previous.onclick = function(event) {
     event.stopPropagation();
-    
     idx--;
     changeImg();
     resetInterval();
 };
 next.onclick = function(event) {
     event.stopPropagation();
-
     idx++;
     changeImg();
     resetInterval();
@@ -36,7 +34,6 @@ next.onclick = function(event) {
 // 클릭 이동
 indicatorList.onclick = function(event) {
     event.stopPropagation();
-
     if (event.target.nodeName == 'LI') {
         idx = event.target.value;
         changeImg();
@@ -52,6 +49,7 @@ function autoSlide() {
     }
 }
 
+// 이미지 변경
 function changeImg() {
     if (idx >= imageCnt) {
         idx -= imageCnt;
@@ -60,8 +58,19 @@ function changeImg() {
     }
 
     carouselImg.src = `https://kei9641.github.io/vanillaJS-carousel/assets/images/${imagePath[idx]}`;
+    changeIndicator(idx);
 };
 
+// 현재 indicator 표시
+function changeIndicator(idx) {
+    let indicators = indicatorList.querySelectorAll('li');
+    let indicator = indicatorList.querySelector('.current');
+    
+    indicator.classList.remove('current');
+    indicators[idx].classList.add('current');
+}
+
+// 이미지 변경 시간 카운트 초기화
 function resetInterval() {
     clearInterval(interval);
     interval = setInterval(autoSlide, 3000);
