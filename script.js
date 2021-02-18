@@ -59,7 +59,7 @@ function changeImg() {
         idx += imageCnt;
     }
 
-    carouselImg.src = `https://kei9641.github.io/test/assets/images/${imagePath[idx]}`;
+    carouselImg.src = `https://kei9641.github.io/vanillaJS-carousel/assets/images/${imagePath[idx]}`;
 };
 
 function resetInterval() {
